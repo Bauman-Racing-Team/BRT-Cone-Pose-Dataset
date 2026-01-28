@@ -94,29 +94,6 @@ Each line in a label file (one per image) follows:
 - Keypoints are stored as triples (`x`, `y`, `v`) and are also **normalized** to [0..1].
 - `kpt_shape: [8, 3]` means **8 keypoints** with **3 values each**.
 
-### Keypoint order (index -> meaning)
-
-We use **8 semantic keypoints** per cone. Indices are fixed:
-
-0. `top` - cone top point
-1. `bot_left` - bottom left corner
-2. `bot_right` - bottom right corner
-3. `bot_center` - bottom center point
-4. `mid_left` - left side midpoint
-5. `mid_right` - right side midpoint
-6. `mid_left_top` - left upper-mid anchor
-7. `mid_right_top` - right upper-mid anchor
-
-> Note: the exact visual definition matches our internal annotation guide;
-> keep this ordering unchanged during training/inference.
-
-### Visibility flag `v`
-
-`v` follows the common YOLO-Pose convention:
-- `0` - not labeled / not visible
-- `1` - labeled but occluded
-- `2` - labeled and visible
-
 ---
 
 ## Quick start (Ultralytics YOLO-Pose)
