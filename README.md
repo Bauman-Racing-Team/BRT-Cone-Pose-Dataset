@@ -1,7 +1,6 @@
 # BRT Cone Pose Dataset
 
-A FSOCO-like dataset for **Formula Student Driverless** cone localization (BBoxes + Classes + Keypoints) in a **single
-annotation format**:
+A FSOCO-like dataset for **Formula Student Driverless** cone localization (BBoxes + Classes + Keypoints) in a **single annotation format**:
 - **Bounding Boxes**
 - **Cone types/classes** (blue / yellow / orange / big orange / unknown)
 - **Keypoints (pose)**
@@ -10,8 +9,8 @@ annotation format**:
 
 This dataset was created within the **Bauman Racing Team Driverless** perception workstream.
 
-> If you use this dataset in research, projects, or products, please **credit Bauman Racing Team (BRT)**  
-> (see **Citation** section).
+> If you use this dataset in research, projects, or products, please **credit Bauman Racing Team (BRT)**.
+> See the **Citation** section.
 
 ---
 
@@ -30,7 +29,7 @@ fsoco-pose-split
     └── val
 ```
 
-This is the standard **YOLO-Pose** dataset format. Each image has its own label file in the \`labels/\` directory.
+This is the standard **YOLO-Pose** dataset format. Each image has its own label file in the `labels/` directory.
 
 ---
 
@@ -47,8 +46,8 @@ Total: **2764** samples.
 
 ## Annotated examples
 
-![labeled_example_1.jpg](examples/pictures/labeled_example_1.jpg)  
-![labeled_example_2.jpg](examples/pictures/labeled_example_2.jpg)  
+![labeled_example_1.jpg](examples/pictures/labeled_example_1.jpg)
+![labeled_example_2.jpg](examples/pictures/labeled_example_2.jpg)
 ![labeled_example_3.jpg](examples/pictures/labeled_example_3.jpg)
 
 ---
@@ -72,8 +71,8 @@ We achieved ~**5x end-to-end speedup** using a one-stage pose estimator compared
 **Benchmark setup:**
 - Engine: **TensorRT**
 - GPU: **NVIDIA Tesla A2000**
-- Model: \`yolo26n-pose.pt\`
-- Input size: \`imgsz=800\`
+- Model: `yolo26n-pose.pt`
+- Input size: `imgsz=800`
 - Metric: **end-to-end (E2E)** latency (= pre + inference + post)
 - Limit: **max 100 detected cones per frame** (= we cap detections to 100 cones per image for consistent runtime)
 
@@ -91,7 +90,7 @@ Each line in a label file (one per image) follows:
 
 `<class_id> <x_center> <y_center> <width> <height> <kpt0_x> <kpt0_y> <kpt0_v> ... <kpt7_x> <kpt7_y> <kpt7_v>`
 
-- Bounding box values are **normalized** to \[0..1\] relative to image width/height.
+- Bounding box values are **normalized** to [0..1] relative to image width/height.
 - Keypoints are stored as triples (`x`, `y`, `v`) and are also **normalized** to [0..1].
 - `kpt_shape: [8, 3]` means **8 keypoints** with **3 values each**.
 
@@ -99,14 +98,14 @@ Each line in a label file (one per image) follows:
 
 We use **8 semantic keypoints** per cone. Indices are fixed:
 
-0. `top` - cone top point  
-1. `bot_left` - bottom left corner  
-2. `bot_right` - bottom right corner  
-3. `bot_center` - bottom center point  
-4. `mid_left` - left side midpoint  
-5. `mid_right` - right side midpoint  
-6. `mid_left_top` - left upper-mid anchor  
-7. `mid_right_top` - right upper-mid anchor  
+0. `top` - cone top point
+1. `bot_left` - bottom left corner
+2. `bot_right` - bottom right corner
+3. `bot_center` - bottom center point
+4. `mid_left` - left side midpoint
+5. `mid_right` - right side midpoint
+6. `mid_left_top` - left upper-mid anchor
+7. `mid_right_top` - right upper-mid anchor
 
 > Note: the exact visual definition matches our internal annotation guide;
 > keep this ordering unchanged during training/inference.
@@ -157,7 +156,7 @@ results = model.train(
 
 The **images used in this dataset originate from the FSOCO (Formula Student Objects in Context) dataset**.
 
-All rights, ownership, and licensing of the **raw images** belong to the original FSOCO authors and contributors.  
+All rights, ownership, and licensing of the **raw images** belong to the original FSOCO authors and contributors.
 This repository **does not claim ownership** over the images and **does not redistribute them independently of FSOCO**.
 
 The images are included **only as part of the original FSOCO dataset structure** and remain subject to the
@@ -175,10 +174,9 @@ The **annotations provided in this repository** (bounding boxes, cone classes, a
 
 Unless stated otherwise:
 - **Annotations and scripts** in this repository are released under the **CC BY 4.0** license.
-- You are free to **use, modify, and redistribute** the annotations for research or commercial purposes,  
-  **provided that proper attribution is given**.
+- You are free to **use, modify, and redistribute** the annotations for research or commercial purposes, provided that proper attribution is given.
 
-**Attribution requirement**:  
+**Attribution requirement**:
 > Any use of these annotations must include a reference to **Bauman Racing Team (BRT)** and this repository.
 
 ---
@@ -187,12 +185,9 @@ Unless stated otherwise:
 
 To avoid ambiguity, we separate licensing for **images** and **annotations**:
 
-- **Images:** come from the original **FSOCO** dataset and remain under the **FSOCO terms**.  
-  This repository does **not** claim ownership over the images.
+- **Images:** come from the original **FSOCO** dataset and remain under the **FSOCO terms**. This repository does **not** claim ownership over the images.
 
-- **Annotations and scripts in this repository:** (`labels/*`, scripts, derived metadata) are released 
-under **CC BY 4.0**.  
-  You may use/modify/redistribute them with attribution to **Bauman Racing Team (BRT)**.
+- **Annotations and scripts in this repository:** (`labels/*`, scripts, derived metadata) are released under **CC BY 4.0**. You may use/modify/redistribute them with attribution to **Bauman Racing Team (BRT)**.
 
 If you redistribute this dataset, please ensure you:
 1. Keep attribution to **FSOCO** for images, and follow **FSOCO terms**.
@@ -230,8 +225,8 @@ please cite **both**:
 
 ### Notes on fair use and attribution
 
-This repository does not replace FSOCO and is intended to be used together with the original dataset.  
-Please do not remove or obscure references to FSOCO or Bauman Racing Team when using this data.  
+This repository does not replace FSOCO and is intended to be used together with the original dataset.
+Please do not remove or obscure references to FSOCO or Bauman Racing Team when using this data.
 Derived annotations must not be presented as independently collected image data.
 
 ---
