@@ -93,6 +93,8 @@ Each line in a label file (one per image) follows:
 - Bounding box values are **normalized** to [0..1] relative to image width/height.
 - Keypoints are stored as triples (`x`, `y`, `v`) and are also **normalized** to [0..1].
 - `kpt_shape: [8, 3]` means **8 keypoints** with **3 values each**.
+- Real number of keypoints: **8 for big cones** and **6 for small cones** **(last 2 keypoints coordinates are zeroed)**.
+
 
 ---
 
