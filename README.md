@@ -70,7 +70,7 @@ We achieved ~**5x end-to-end speedup** using a one-stage pose estimator compared
 
 **Benchmark setup:**
 - Engine: **TensorRT**
-- GPU: **NVIDIA RTX A2000**
+- GPU: **NVIDIA Quadro RTX A2000**
 - Model: `yolo26n-pose.pt`
 - Input size: `imgsz=800`
 - Metric: **end-to-end (E2E)** latency (= pre + inference + post)
