@@ -112,7 +112,7 @@ Example:
 
 Use `data.yaml` from this dataset and any YOLO-Pose checkpoint.
 
-Example with our checkpoint name:
+Example with YOLO26n-Pose model:
 
 ```python
 from ultralytics import YOLO
