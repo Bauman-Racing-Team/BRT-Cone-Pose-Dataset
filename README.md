@@ -36,11 +36,11 @@ This is the standard **YOLO-Pose** dataset format. Each image has its own label 
 ## Dataset stats
 
 File counts (images + label files):
-- **train:** 2209
-- **test:** 278
-- **val:** 277
+- **train:** 9218
+- **test:** 1153
+- **val:** 1152
 
-Total: **2764** samples.
+Total: **11523** samples.
 
 ---
 
@@ -70,7 +70,7 @@ We achieved ~**5x end-to-end speedup** using a one-stage pose estimator compared
 
 **Benchmark setup:**
 - Engine: **TensorRT**
-- GPU: **NVIDIA Quadro RTX A2000**
+- GPU: **NVIDIA Tesla A2000**
 - Model: `yolo26n-pose.pt`
 - Input size: `imgsz=800`
 - Metric: **end-to-end (E2E)** latency (= pre + inference + post)
@@ -84,6 +84,13 @@ We achieved ~**5x end-to-end speedup** using a one-stage pose estimator compared
 
 This dataset uses **YOLO-Pose** labels: each object = `class + bbox + keypoints`.
 
+Class ids:
+- `0: BLUE`
+- `1: ORANGE_BIG`
+- `2: ORANGE`
+- `3: UNDEFINED`
+- `4: YELLOW`
+
 ### Label line format
 
 Each line in a label file (one per image) follows:
@@ -93,8 +100,6 @@ Each line in a label file (one per image) follows:
 - Bounding box values are **normalized** to [0..1] relative to image width/height.
 - Keypoints are stored as triples (`x`, `y`, `v`) and are also **normalized** to [0..1].
 - `kpt_shape: [8, 3]` means **8 keypoints** with **3 values each**.
-- Real number of keypoints: **8 for big cones** and **6 for small cones** **(last 2 keypoints coordinates are zeroed)**.
-
 
 ---
 
@@ -112,7 +117,7 @@ Example:
 
 Use `data.yaml` from this dataset and any YOLO-Pose checkpoint.
 
-Example with YOLO26n-Pose model:
+Example train.py script:
 
 ```python
 from ultralytics import YOLO
